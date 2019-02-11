@@ -2,16 +2,9 @@
 <div class="container">
 
 <!-- Page Heading/Breadcrumbs -->
-<h1 class="mt-4 mb-3">Portfolio Item
-  <small>Subheading</small>
+<h1 class="mt-4 mb-3">Detail Produk
 </h1>
 
-<ol class="breadcrumb">
-  <li class="breadcrumb-item">
-    <a href="index.html">Home</a>
-  </li>
-  <li class="breadcrumb-item active">Portfolio Item</li>
-</ol>
 
 <!-- Portfolio Item Row -->
 <div class="row">
