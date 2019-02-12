@@ -56,9 +56,11 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php echo $_COOKIE['user']?>
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfil">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item" href="profile">Profile</a>
               <a class="dropdown-item" href="cart">Cart</a>
               <a class="dropdown-item" href="wish-list">Wish List</a>
+              <a class="dropdown-item" href="history">History</a>
               <a class="dropdown-item" href="logout">Log Out</a>
             </div>
           </li>

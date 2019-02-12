@@ -44,14 +44,19 @@ switch ($request) {
     case '/product-detail' :
         require __DIR__ . '/screen/product-detail.php';
         break;
+    case '/cart' :
+        require __DIR__ . '/screen/cart.php';
+        break;
     default: 
         require __DIR__ . '/screen/404.html';
         break;
 }
-    if($request !== '/login' && $request !== '/register' ){
+    if($request !== '/login' && $request !== '/register' && $request !== '/cart' ){
       include_once 'component/footer.php';
     }
 ?>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
