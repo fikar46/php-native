@@ -7,73 +7,27 @@
 
 
 <div class="row">
+<?php 
+require_once('./src/route/config.php');
+$country = "SELECT * FROM negara";
+$sql = mysql_query($country);
+if(mysql_num_rows($sql)>0){
+  while($row = mysql_fetch_assoc($sql)) {
+    ?>
   <div class="col-lg-6 portfolio-item">
     <div class="card h-100">
-      <a href="product-country"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+      <a href="product-country?country=<?php echo $row['nama']?>"><img class="card-img-top" src="./image/negara/<?php echo $row['gambar']?>" alt=""></a>
       <div class="card-body">
         <h4 class="card-title">
-          <a href="product-country">Project One</a>
+          <a href="product-country?country=<?php echo $row['nama']?>" style="text-decoration:none "><?php echo $row['nama']?></a>
         </h4>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
       </div>
     </div>
   </div>
-  <div class="col-lg-6 portfolio-item">
-    <div class="card h-100">
-      <a href="product-country"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-      <div class="card-body">
-        <h4 class="card-title">
-          <a href="product-country">Project Two</a>
-        </h4>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit aliquam aperiam nulla perferendis dolor nobis numquam, rem expedita, aliquid optio, alias illum eaque. Non magni, voluptates quae, necessitatibus unde temporibus.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6 portfolio-item">
-    <div class="card h-100">
-      <a href="product-country"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-      <div class="card-body">
-        <h4 class="card-title">
-          <a href="product-country">Project Three</a>
-        </h4>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6 portfolio-item">
-    <div class="card h-100">
-      <a href="product-country"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-      <div class="card-body">
-        <h4 class="card-title">
-          <a href="product-country">Project Four</a>
-        </h4>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit aliquam aperiam nulla perferendis dolor nobis numquam, rem expedita, aliquid optio, alias illum eaque. Non magni, voluptates quae, necessitatibus unde temporibus.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6 portfolio-item">
-    <div class="card h-100">
-      <a href="product-country"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-      <div class="card-body">
-        <h4 class="card-title">
-          <a href="product-country">Project Five</a>
-        </h4>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6 portfolio-item">
-    <div class="card h-100">
-      <a href="product-country"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-      <div class="card-body">
-        <h4 class="card-title">
-          <a href="product-country">Project Six</a>
-        </h4>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit aliquam aperiam nulla perferendis dolor nobis numquam, rem expedita, aliquid optio, alias illum eaque. Non magni, voluptates quae, necessitatibus unde temporibus.</p>
-      </div>
-    </div>
-  </div>
-</div>
+  <?php
+  }
+}
+?>
 <!-- /.row -->
 
 <!-- Pagination -->
@@ -100,6 +54,6 @@
     </a>
   </li>
 </ul> -->
-
+</div>
 </div>
 <!-- /.container -->

@@ -20,3 +20,15 @@ body {
 .portfolio-item {
   margin-bottom: 30px;
 }
+.card-country {
+  display: block;
+  color: white;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 140px;
+  padding: 45px;
+}
+h2.negara {
+  border: 2px solid;
+  font-size: 37px;
+}

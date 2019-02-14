@@ -10,8 +10,11 @@ if(mysql_num_rows($sql)>0){
   while($row = mysql_fetch_assoc($sql)) {
     ?>
     <div class="col-lg-4 col-sm-6 portfolio-item">
-      <div class="card h-100">
-        <a href="product-country"><img class="card-img-top" src="./image/negara/<?php echo $row['gambar']?>" alt=""></a>
+      <div class="card-country" style="background-image: url('./image/negara/<?php echo $row['gambar']?>')">
+      
+        <a href="product-country?country=<?php echo $row['nama']?>" style="color:white; text-decoration:none ">
+        <h2 class='negara'><?php echo $row['nama']?></h2>
+        </a>
       </div>
     </div>
     <?php
