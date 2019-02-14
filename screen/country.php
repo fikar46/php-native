@@ -4,7 +4,7 @@
 <!-- Page Heading/Breadcrumbs -->
 <h1 class="mt-4 mb-3">Request berdasarkan Negara
 </h1>
-
+<hr>
 
 <div class="row">
 <?php 

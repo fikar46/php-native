@@ -6,6 +6,8 @@
 <body>
   <?php
   include_once 'component/navigation.php';
+  error_reporting(0);
+ 
   $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '/' :
@@ -38,10 +40,10 @@ switch ($request) {
      case '/logout' :
         require __DIR__ . '/src/backend/action/logout.php';
         break;
-    case '/product-country' :
+    case "/product-country?country=$_GET[country]" :
         require __DIR__ . '/screen/product-country.php';
         break;
-    case '/product-detail' :
+    case "/product-detail?id=$_GET[id]" :
         require __DIR__ . '/screen/product-detail.php';
         break;
     case '/cart' :
