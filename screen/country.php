@@ -16,10 +16,10 @@ if(mysql_num_rows($sql)>0){
     ?>
   <div class="col-lg-6 portfolio-item">
     <div class="card h-100">
-      <a href="product-country?country=<?php echo $row['nama']?>"><img class="card-img-top" src="./image/negara/<?php echo $row['gambar']?>" alt=""></a>
+      <a href="product-country?country=<?php echo $row['id']?>"><img class="card-img-top" src="./image/negara/<?php echo $row['gambar']?>" alt=""></a>
       <div class="card-body">
         <h4 class="card-title">
-          <a href="product-country?country=<?php echo $row['nama']?>" style="text-decoration:none "><?php echo $row['nama']?></a>
+          <a href="product-country?country=<?php echo $row['id']?>" style="text-decoration:none "><?php echo $row['nama']?></a>
         </h4>
       </div>
     </div>

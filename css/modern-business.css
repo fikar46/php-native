@@ -32,3 +32,20 @@ h2.negara {
   border: 2px solid;
   font-size: 37px;
 }
+img.img-fluid.d-block.w-100 {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+img.card-img-top {
+  height: 248px;
+}
+/* .carousel-item.detail {
+  height: auto;
+} */
+input.input-wish {
+  border: 1px solid;
+  margin-bottom: 20px;
+  padding: 3px;
+  padding-left: 63px;
+}

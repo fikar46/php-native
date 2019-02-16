@@ -16,12 +16,29 @@ if(mysql_num_rows($sql)>0){
     ?>
   <div class="col-lg-4 col-sm-6 portfolio-item">
     <div class="card h-100">
-      <a href="product-detail?id=<?php echo $row['id']?>"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+      <a href="product-detail?id=<?php echo $row['id']?>">
+      <?php 
+      require_once('./src/route/config.php');
+      $image = "SELECT gp.gambar as gambar FROM produk p JOIN gambar_produk gp on p.id = gp.id_produk where p.id = $row[id] LIMIT 1";
+      $sql2 = mysql_query($image);
+      if(mysql_num_rows($sql2)>0){
+        while($row2 = mysql_fetch_assoc($sql2)){
+          ?>
+           <img class="card-img-top"  src="<?php echo $row2['gambar']?>" alt="">
+          <?php
+        }
+      }
+      ?>
+     
+    </a>
       <div class="card-body">
         <h4 class="card-title">
-          <a href="product-detail?id=<?php echo $row['id']?>"><?php echo $row['nama']?></a>
+          <a href="product-detail?id=<?php echo $row['id']?>">
+          <?php echo $row['nama']?>
+        </a>
         </h4>
         <p class="card-text"><?php echo $row['deskripsi']?></p>
+        <p class="card-text">Rp <?php echo $row['harga']?></p>
       </div>
     </div>
   </div>
