@@ -27,25 +27,25 @@ if(mysql_num_rows($sql)>0){
   <div class="carousel-inner">
    
     <div class="carousel-item detail active">
-      <img class="img-fluid d-block w-100" src="<?php echo $row2['gambar']?>" alt="First slide">
+      <img class="img-fluid d-block w-100 img-responsive" src="<?php echo $row2['gambar']?>" alt="First slide">
     </div>
     <?php if(isset($row2['gambar2'])){
     ?>
           <div class="carousel-item detail">
-            <img class="d-block w-100" src="<?php echo $row2['gambar2']?>" alt="Second slide">
+            <img class="d-block w-100 img-responsive" src="<?php echo $row2['gambar2']?>" alt="Second slide">
           </div>
       <?php
       }elseif(isset($row2['gambar3'])) {
         ?>
     <div class="carousel-item detail">
-        <img class="d-block w-100" src="<?php echo $row2['gambar3']?>" alt="Third slide">
+        <img class="d-block w-100 img-responsive" src="<?php echo $row2['gambar3']?>" alt="Third slide">
     </div>
         <?php
       }
       if (isset($row2['gambar4'])) {
         ?>
     <div class="carousel-item detail">
-        <img class="d-block w-100" src="<?php echo $row2['gambar3']?>" alt="Third slide">
+        <img class="d-block w-100 img-responsive" src="<?php echo $row2['gambar3']?>" alt="Third slide">
     </div>
         <?php
       }
@@ -75,15 +75,19 @@ if(mysql_num_rows($sql)>0){
       <li>Asal Negara : <?php echo $row['negara']?></li>
     </ul>
     <p>Masukan jumlah yang diinginkan</p>
-    <input type="number" class="input-wish" placeholder="1" min="1" max="100">
-    <button class='btn btn-info w-100' type='button'>Masukan kedalam keranjang</button>
+   <form method='post' action="./src/backend/action/input-chart.php">
+    <input type="hidden" name='user' value="<?php echo $_COOKIE['user']?>"/>
+    <input type="hidden" name='product' value="<?php echo $row['id']?>"/>
+    <input type="hidden" name='negara' value="<?php echo $row['negara']?>"/>
+    <input type="number" name="number-product" class="input-wish form-control text-center" placeholder="1" min="1" max="100" value='1'/>
+    <input  name="cart" class='btn btn-info w-100' type='submit' value="Masukan kedalam keranjang" />
     <br><br>
-    <button class='btn btn-success w-100' type='button'>Beli Sekarang</button>
+    <input  name="checkout" class='btn btn-success w-100' type='submit' value="Beli Sekarang" />
+    </form>
   </div>
   
 </div>
 <!-- /.row -->
- 
 <!-- Related Projects Row -->
 <h3 class="my-4">Barang terkait</h3>
 

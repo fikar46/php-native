@@ -33,6 +33,9 @@
    
    <?php
 } else {
+  require_once('./src/route/config.php');
+  $cart = mysql_query("SELECT * FROM cart WHERE USER='$_COOKIE[user]'");
+  $cek = mysql_num_rows($cart);
 ?>
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -51,6 +54,10 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact">Contact</a>
+          </li>
+          <li class="nav-item">
+           
+            <a class="nav-link" href="cart">Cart<i class='fas fa-shopping-cart'></i><i class='notif-badge'><?php echo $cek?></i></a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

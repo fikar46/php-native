@@ -46,6 +46,12 @@ switch ($request) {
     case "/product-detail?id=$_GET[id]" :
         require __DIR__ . '/screen/product-detail.php';
         break;
+    case "/checkout?id_product=$_GET[id_product]&&number_of_product=$_GET[number_of_product]";
+        require __DIR__ . '/screen/checkout.php';
+        break;
+    case "/checkout";
+        require __DIR__ . '/screen/checkout.php';
+        break;
     case '/cart' :
         require __DIR__ . '/screen/cart.php';
         break;
