@@ -2,25 +2,24 @@
 
 
 <!-- Portfolio Section -->
-<h2>Produk Terbaru</h2>
+<center><h2>Produk Terbaru</h2></center>
+<br>
 
 <div class="row">
 <?php 
-require_once('./src/route/config.php');
-$country = "SELECT p.id as id, p.nama as nama, p.deskripsi as deskripsi, p.harga as harga, kp.nama as kategori, p.negara as id_negara, n.nama as negara from produk p JOIN kategori_produk kp ON p.kategori = kp.id JOIN negara n ON p.negara = n.id LIMIT 9";
-$sql = mysql_query($country);
-if(mysql_num_rows($sql)>0){
-  while($row = mysql_fetch_assoc($sql)) {
+$country =  $dbh->prepare("SELECT p.id as id, p.nama as nama, p.deskripsi as deskripsi, p.harga as harga, kp.nama as kategori, p.negara as id_negara, n.nama as negara from produk p JOIN kategori_produk kp ON p.kategori = kp.id JOIN negara n ON p.negara = n.id LIMIT 4");
+$country->execute();
+if($country->rowCount()>0){
+  while($row=$country->fetch()) {
     ?>
-  <div class="col-lg-4 col-sm-6 portfolio-item">
+  <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
     <div class="card h-100">
       <a href="product-detail?id=<?php echo $row['id']?>">
       <?php 
-      require_once('./src/route/config.php');
-      $image = "SELECT gp.gambar as gambar FROM produk p JOIN gambar_produk gp on p.id = gp.id_produk where p.id = $row[id] LIMIT 1";
-      $sql2 = mysql_query($image);
-      if(mysql_num_rows($sql2)>0){
-        while($row2 = mysql_fetch_assoc($sql2)){
+      $image = $dbh->prepare("SELECT gp.gambar as gambar FROM produk p JOIN gambar_produk gp on p.id = gp.id_produk where p.id = $row[id] LIMIT 1");
+      $image->execute();
+      if($image->rowCount()>0){
+        while($row2 = $image->fetch()){
           ?>
            <img class="card-img-top"  src="<?php echo $row2['gambar']?>" alt="">
           <?php

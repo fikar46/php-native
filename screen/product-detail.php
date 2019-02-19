@@ -1,11 +1,10 @@
 <!-- Page Content -->
 <div class="container">
 <?php 
-require_once('./src/route/config.php');
-$country = "SELECT p.id as id, p.nama as nama, p.deskripsi as deskripsi, p.harga as harga, kp.nama as kategori, p.negara as id_negara, n.nama as negara from produk p JOIN kategori_produk kp ON p.kategori = kp.id JOIN negara n ON p.negara = n.id WHERE p.id = $_GET[id]";
-$sql = mysql_query($country);
-if(mysql_num_rows($sql)>0){
-  while($row = mysql_fetch_assoc($sql)) {
+$country =  $dbh->prepare("SELECT p.id as id, p.nama as nama, p.deskripsi as deskripsi, p.harga as harga, kp.nama as kategori, p.negara as id_negara, n.nama as negara from produk p JOIN kategori_produk kp ON p.kategori = kp.id JOIN negara n ON p.negara = n.id WHERE p.id = $_GET[id]");
+$country->execute();
+if($country->rowCount()>0){
+  while($row=$country->fetch()) {
     ?>
     <!-- Page Heading/Breadcrumbs -->
 <h1 class="mt-4 mb-3"><?php echo $row['nama']?>
@@ -16,11 +15,10 @@ if(mysql_num_rows($sql)>0){
 
   <div class="col-md-8">
   <?php 
-      require_once('./src/route/config.php');
-      $image = "SELECT gp.gambar as gambar ,gp.gambar2 as gambar2, gp.gambar3 as gambar3 FROM produk p JOIN gambar_produk gp on p.id = gp.id_produk where p.id = $row[id]";
-      $sql2 = mysql_query($image);
-      if(mysql_num_rows($sql2)>0){
-        while($row2 = mysql_fetch_assoc($sql2)){
+      $image = $dbh->prepare("SELECT gp.gambar as gambar ,gp.gambar2 as gambar2, gp.gambar3 as gambar3 FROM produk p JOIN gambar_produk gp on p.id = gp.id_produk where p.id = $row[id]");
+      $image->execute();
+      if($image->rowCount()>0){
+        while($row2 = $image->fetch()){
           ?>
     
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

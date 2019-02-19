@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <?php
+  include_once './src/route/config.php';
   include_once 'component/head.php';
   ?>
 <body>
   <?php
   include_once 'component/navigation.php';
+  ?>
+  
+  <br>
+  <?php
   error_reporting(0);
  
   $request = $_SERVER['REQUEST_URI'];
@@ -17,6 +22,9 @@ switch ($request) {
         require __DIR__ . '/screen/homepage.php';
         break;
      case '/index.php' :
+        require __DIR__ . '/screen/homepage.php';
+        break;
+    case '/?typeahead=sepatu' :
         require __DIR__ . '/screen/homepage.php';
         break;
     case '/about' :
@@ -39,6 +47,15 @@ switch ($request) {
         break;
      case '/logout' :
         require __DIR__ . '/src/backend/action/logout.php';
+        break;
+    case "/product-country?country=$_GET[country]&&page=$_GET[page]" :
+        require __DIR__ . '/screen/product-country.php';
+        break;
+    case "/product-country?country=$_GET[country]&&kategori=$_GET[kategori]&&page=$_GET[page]" :
+        require __DIR__ . '/screen/product-country.php';
+        break;
+    case "/product-country?country=$_GET[country]&&kategori=$_GET[kategori]" :
+        require __DIR__ . '/screen/product-country.php';
         break;
     case "/product-country?country=$_GET[country]" :
         require __DIR__ . '/screen/product-country.php';

@@ -8,11 +8,9 @@
 
 <div class="row">
 <?php 
-require_once('./src/route/config.php');
-$country = "SELECT * FROM negara";
-$sql = mysql_query($country);
-if(mysql_num_rows($sql)>0){
-  while($row = mysql_fetch_assoc($sql)) {
+$country = $dbh->prepare("SELECT * FROM negara");
+$country->execute();
+  while($row = $country->fetch()) {
     ?>
   <div class="col-lg-6 portfolio-item">
     <div class="card h-100">
@@ -26,7 +24,6 @@ if(mysql_num_rows($sql)>0){
   </div>
   <?php
   }
-}
 ?>
 <!-- /.row -->
 

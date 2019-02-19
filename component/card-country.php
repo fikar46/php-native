@@ -1,14 +1,14 @@
+<br>
 <center>
-  <h2>Lihat request berdasarkan negara</h2>
+  <h2>Produk berdasarkan negara</h2>
 </center>
 <hr>
 <div class="row">
 <?php 
-require_once('./src/route/config.php');
-$country = "SELECT * FROM negara LIMIT 6";
-$sql = mysql_query($country);
-if(mysql_num_rows($sql)>0){
-  while($row = mysql_fetch_assoc($sql)) {
+$country = $dbh->prepare("SELECT * FROM negara LIMIT 6");
+$country->execute();
+if($country->rowCount()>0){
+  while($row=$country->fetch()) {
     ?>
     <div class="col-lg-4 col-sm-6 portfolio-item">
       <div class="card-country" style="background-image: url('./image/negara/<?php echo $row['gambar']?>')">

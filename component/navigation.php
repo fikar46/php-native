@@ -1,25 +1,33 @@
 
+
   <?php 
   if(!isset($_COOKIE['user'])) {
    ?>
      <!-- Navigation -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="/">Warehonesia</a>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white fixed-top"  id="custom-nav">
+    <div class="container-navbar container w-100">
+    <a class="navbar-brand" href="/"><img class="img-responsive logo logo-warehouse" src="./image/logo.jpeg" widht="50px" height="50px"/>Warehousenesia</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="about">About</a>
+        <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item">
+            <a class="nav-link" href="how-it-works">How It Works</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="services">Services</a>
+            <a class="nav-link" href="about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services">Testimonial</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact">Contact</a>
           </li>
+          
+        </ul>
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="login">Login</a>
           </li>
@@ -30,22 +38,26 @@
       </div>
     </div>
   </nav>
-   
    <?php
 } else {
-  require_once('./src/route/config.php');
-  $cart = mysql_query("SELECT * FROM cart WHERE USER='$_COOKIE[user]'");
-  $cek = mysql_num_rows($cart);
+  include_once './src/route/config.php';
+  $cart = $dbh->prepare("SELECT * FROM cart WHERE USER='$_COOKIE[user]'");
+  $cart->execute();
+  $cek =$cart->rowCount();
 ?>
   <!-- Navigation -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="/">Warehonesia</a>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container container-navbar w-100">
+    <a class="navbar-brand" href="/"><img class="img-responsive logo logo-warehouse" src="./image/logo.jpeg" widht="50px" height="50px"/>Warehousenesia</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav mr-auto">
+        
+           <li class="nav-item">
+            <a class="nav-link" href="how-it-works">How It Works</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="about">About</a>
           </li>
@@ -55,6 +67,8 @@
           <li class="nav-item">
             <a class="nav-link" href="contact">Contact</a>
           </li>
+          </ul>
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
            
             <a class="nav-link" href="cart">Cart<i class='fas fa-shopping-cart'></i><i class='notif-badge'><?php echo $cek?></i></a>

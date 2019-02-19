@@ -5,7 +5,9 @@
  */
 body {
   padding-top: 56px;
+  overflow-x: hidden;
 }
+
 
 .carousel-item {
   height: 65vh;
@@ -58,4 +60,24 @@ i.notif-badge {
   top: 0;
   right: 0;
   margin-left: 5px;
+}
+nav#custom-nav {
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,.05);
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,.05);
+}
+
+a.nav-link {
+  font-weight: bold;
+}
+@media (min-width: 1200px){
+.container-navbar {
+    max-width: 1400px;
+}
+}
+.filter-card {
+  margin-left: 70px;
+}
+li.list-category {
+  font-weight: bold;
+  margin-bottom: 15px;
 }
