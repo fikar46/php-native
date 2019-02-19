@@ -72,6 +72,12 @@ switch ($request) {
     case '/cart' :
         require __DIR__ . '/screen/cart.php';
         break;
+    case '/profile' :
+        require __DIR__ . '/screen/profile.php';
+        break;
+    case "/profile?page=$_GET[page]" :
+        require __DIR__ . '/screen/profile.php';
+        break;
     default: 
         require __DIR__ . '/screen/404.html';
         break;
